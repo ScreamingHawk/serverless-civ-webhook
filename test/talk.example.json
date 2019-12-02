@@ -1,5 +1,5 @@
 {
-	"path": "/civ/notify",
+	"path": "/talk",
 	"httpMethod": "POST",
 	"headers": {
 		"Content-Type": "application/json"
