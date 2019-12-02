@@ -3,17 +3,20 @@
 const discordjs = require('discord.js')
 const discord = new discordjs.Client()
 
+const defaultChannel = process.env.defaultChannel || "478505976711086082"
+
 // Map Civ game name to Discord channel Id
 const games = {
 	"Lovers": "478505976711086082",
-	"Milky and Friends": "634070954963763201",
+	"Milky and friends": "634070954963763201",
 }
 
 // Map Civ player name to Discord user Id
 const players = {
 	"MilkyTaste": "172630139878768640",
-	"Superepicgecko": "190293274177699840",
-	"SpicedEmpyreuma": "202101955231744000",
+	"Diego Brando": "190293274177699840",
+	"IcedEmpyre": "202101955231744000",
+	"naguyin": "234439528473952257",
 }
 
 module.exports.notify = async event => {
@@ -42,14 +45,14 @@ module.exports.notify = async event => {
 	}
 
 	// Get channel
-	let channelId = games[gameName] || process.env.defaultChannel
+	let channelId = games[gameName] || defaultChannel
 	const channel = discord.channels.get(channelId)
 	if (!channel){
 		console.error(`Invalid channel ${channelId}, using default`)
 		channel = discord.channels.get(process.env.defaultChannel)
 		if (!channel){
 			// Fail default channel invalid
-			console.error(`Invalid default channel ${process.env.defaultChannel}`)
+			console.error(`Invalid default channel ${defaultChannel}`)
 			return {
 				statusCode: 400,
 			}
