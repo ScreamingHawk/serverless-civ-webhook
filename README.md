@@ -26,8 +26,17 @@ serverless deploy --aws-profile default
 
 ### Test
 
+Notification
+
 ```sh
 sls invoke -f notify --aws-profile default --path test/civ.example.json
+```
+
+Talk
+
+
+```sh
+sls invoke -f talk --aws-profile default --path test/talk.example.json
 ```
 
 ### Logs
@@ -43,3 +52,9 @@ Replace `XXX` with your env values.
 ```sh
 sls invoke local -f notify --path test/civ.example.json -e discordToken=XXX -e defaultChannel=XXX
 ```
+
+## Credits
+
+[Michael Standen](https://michael.standen.link)
+
+This software is provided under the [MIT License](https://tldrlegal.com/license/mit-license) so it's free to use so long as you give me credit.
