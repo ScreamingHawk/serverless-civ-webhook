@@ -27,20 +27,31 @@ module.exports.talk = async event => {
 		}
 	}
 
-	// Get channel
-	const channel = discord.channels.get(channelId)
-	if (!channel){
-		// Fail default channel invalid
-		console.error(`Invalid channel ${channelId}, using default`)
+	try {
+
+		// Get channel
+		const channel = discord.channels.get(channelId)
+		if (!channel){
+			// Fail channel invalid
+			console.error(`Invalid channel ${channelId}`)
+			return {
+				statusCode: 400,
+			}
+		}
+
+		// Send it
+		console.debug(`Sending ${content}...`)
+		await channel.send(content)
+		console.debug('Content sent')
+
+	} catch (err){
+		// Failed for some reason
+		console.error(`Failed because: ${err}`)
+		await discord.destroy()
 		return {
-			statusCode: 400,
+			statusCode: 500,
 		}
 	}
-
-	// Send it
-	console.debug(`Sending ${content}...`)
-	await channel.send(content)
-	console.debug('Content sent')
 
 	// Logout of discord
 	try {
