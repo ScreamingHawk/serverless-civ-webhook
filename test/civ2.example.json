@@ -1,0 +1,12 @@
+{
+	"path": "/civ/notify",
+	"httpMethod": "POST",
+	"headers": {
+		"Content-Type": "application/json"
+	},
+	"queryStringParameters": null,
+	"pathParameters": null,
+	"stageVariables": null,
+	"body": "{\"value1\":\"Milky and Friends\",\"value2\":\"SpicedEmpyreuma\",\"value3\":69}",
+	"isBase64Encoded": false
+}

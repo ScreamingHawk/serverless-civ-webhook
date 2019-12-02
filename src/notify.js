@@ -6,11 +6,14 @@ const discord = new discordjs.Client()
 // Map Civ game name to Discord channel Id
 const games = {
 	"Lovers": "478505976711086082",
+	"Milky and Friends": "634070954963763201",
 }
 
 // Map Civ player name to Discord user Id
 const players = {
 	"MilkyTaste": "172630139878768640",
+	"Superepicgecko": "190293274177699840",
+	"SpicedEmpyreuma": "202101955231744000",
 }
 
 module.exports.notify = async event => {
