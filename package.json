@@ -1,0 +1,16 @@
+{
+  "name": "civ-webhook",
+  "version": "1.0.0",
+  "description": "A serverless webhook to notify when it is your turn in a Civilization VI play by cloud game",
+  "repository": "git@github.com:ScreamingHawk/serverless-civ-webhook.git",
+  "author": "Michael Standen",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "serverless": "^1.58.0",
+    "serverless-dotenv-plugin": "^2.1.1"
+  },
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}

@@ -1,0 +1,19 @@
+service: civ-webhook
+
+plugins:
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    discordToken: ${env:DISCORD_TOKEN}
+    defaultChannel: ${env:DEFAULT_CHANNEL}
+
+functions:
+  notify:
+    handler: src/notify.notify
+    events:
+      - http:
+          path: civ/notify
+          method: post
