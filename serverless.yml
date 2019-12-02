@@ -17,3 +17,9 @@ functions:
       - http:
           path: civ/notify
           method: post
+  talk:
+    handler: src/talk.talk
+    events:
+      - http:
+          path: talk
+          method: post

@@ -1,0 +1,12 @@
+{
+	"path": "/civ/notify",
+	"httpMethod": "POST",
+	"headers": {
+		"Content-Type": "application/json"
+	},
+	"queryStringParameters": null,
+	"pathParameters": null,
+	"stageVariables": null,
+	"body": "{\"content\":\"I am a robot\",\"channel\":\"478505976711086082\"}",
+	"isBase64Encoded": false
+}
