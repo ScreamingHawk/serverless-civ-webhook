@@ -1,0 +1,12 @@
+{
+	"path": "/talk/emoji",
+	"httpMethod": "POST",
+	"headers": {
+		"Content-Type": "application/json"
+	},
+	"queryStringParameters": null,
+	"pathParameters": null,
+	"stageVariables": null,
+	"body": "{\"emoji\":\"clownworld\",\"channel\":\"634070954963763201\"}",
+	"isBase64Encoded": false
+}

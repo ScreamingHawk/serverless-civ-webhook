@@ -23,3 +23,9 @@ functions:
       - http:
           path: talk
           method: post
+  emoji:
+    handler: src/emoji.emoji
+    events:
+      - http:
+          path: talk/emoji
+          method: post
