@@ -17,15 +17,18 @@ functions:
       - http:
           path: civ/notify
           method: post
+          cors: true
   talk:
     handler: src/talk.talk
     events:
       - http:
           path: talk
           method: post
+          cors: true
   emoji:
     handler: src/emoji.emoji
     events:
       - http:
           path: talk/emoji
           method: post
+          cors: true
