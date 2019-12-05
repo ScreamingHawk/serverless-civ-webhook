@@ -6,6 +6,9 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
+  memorySize: 128
+  timeout: 10
+  versionFunctions: false
   environment:
     discordToken: ${env:DISCORD_TOKEN}
     defaultChannel: ${env:DEFAULT_CHANNEL}
