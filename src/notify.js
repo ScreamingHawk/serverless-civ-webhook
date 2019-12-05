@@ -3,11 +3,11 @@
 const discordjs = require('discord.js')
 const discord = new discordjs.Client()
 
-const defaultChannel = process.env.defaultChannel || "478505976711086082"
+const defaultChannel = process.env.defaultChannel || "478506811238907904"
 
 // Map Civ game name to Discord channel Id
 const games = {
-	"Lovers": "478505976711086082",
+	"Lovers": "478506811238907904",
 	"Milky and friends": "634070954963763201",
 }
 
@@ -23,7 +23,7 @@ module.exports.notify = async event => {
 	// Validate request
 	console.debug(event.body)
 	const data = JSON.parse(event.body)
-	if (!data || !data.value1 || !data.value2){
+	if (!data || !data.value1 || !data.value2) {
 		console.error('Invalid notify request')
 		return {
 			statusCode: 400,
@@ -36,7 +36,7 @@ module.exports.notify = async event => {
 	// Login to discord
 	try {
 		await discord.login(process.env.discordToken)
-	} catch (err){
+	} catch (err) {
 		console.error(`Discord login failed: ${err}`)
 		console.log(`Token: ${process.env.discordToken}`)
 		return {
@@ -47,10 +47,10 @@ module.exports.notify = async event => {
 	// Get channel
 	let channelId = games[gameName] || defaultChannel
 	const channel = discord.channels.get(channelId)
-	if (!channel){
+	if (!channel) {
 		console.error(`Invalid channel ${channelId}, using default`)
 		channel = discord.channels.get(process.env.defaultChannel)
-		if (!channel){
+		if (!channel) {
 			// Fail default channel invalid
 			console.error(`Invalid default channel ${defaultChannel}`)
 			return {
@@ -61,7 +61,7 @@ module.exports.notify = async event => {
 
 	// Get player
 	let player = players[civPlayer]
-	if (!player){
+	if (!player) {
 		console.warn(`Unable to find player with civName ${civPlayer}`)
 		player = civPlayer
 	} else {
@@ -76,7 +76,7 @@ module.exports.notify = async event => {
 	// Logout of discord
 	try {
 		await discord.destroy()
-	} catch (err){
+	} catch (err) {
 		console.error(`Discord logout failed: ${err}`)
 		// Fail over, still a success
 	}
