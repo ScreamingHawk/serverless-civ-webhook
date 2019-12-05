@@ -7,7 +7,7 @@ module.exports.emoji = async event => {
 	// Validate request
 	console.debug(event.body)
 	const data = JSON.parse(event.body)
-	if (!data || !data.emoji || !data.channel){
+	if (!data || !data.emoji || !data.channel) {
 		console.error('Invalid talk request')
 		return {
 			statusCode: 400,
@@ -19,7 +19,7 @@ module.exports.emoji = async event => {
 	// Login to discord
 	try {
 		await discord.login(process.env.discordToken)
-	} catch (err){
+	} catch (err) {
 		console.error(`Discord login failed: ${err}`)
 		console.log(`Token: ${process.env.discordToken}`)
 		return {
@@ -29,7 +29,7 @@ module.exports.emoji = async event => {
 
 	// Get channel
 	const channel = discord.channels.get(channelId)
-	if (!channel){
+	if (!channel) {
 		// Fail channel invalid
 		console.error(`Invalid channel ${channelId}`)
 		return {
@@ -39,10 +39,13 @@ module.exports.emoji = async event => {
 
 	// Get emoji
 	const emoji = discord.emojis.find(e => e.name === emojiId)
-	if (!emoji){
+	if (!emoji) {
 		console.error(`Invalid emoji ${emojiId}`)
+		const allEmojis = JSON.stringify(discord.emojis.map(e => e.name))
+		console.debug(`Valid emoji are ${allEmojis}`)
 		return {
 			statusCode: 400,
+			body: allEmojis,
 		}
 	}
 
@@ -54,7 +57,7 @@ module.exports.emoji = async event => {
 	// Logout of discord
 	try {
 		await discord.destroy()
-	} catch (err){
+	} catch (err) {
 		console.error(`Discord logout failed: ${err}`)
 		// Fail over, still a success
 	}
