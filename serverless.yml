@@ -9,6 +9,8 @@ provider:
   memorySize: 128
   timeout: 10
   versionFunctions: false
+  iamManagedPolicies:
+    - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
   environment:
     discordToken: ${env:DISCORD_TOKEN}
     defaultChannel: ${env:DEFAULT_CHANNEL}
