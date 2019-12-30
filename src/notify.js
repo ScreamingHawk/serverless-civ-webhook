@@ -17,6 +17,7 @@ const players = {
 	"Diego Brando": "190293274177699840",
 	"IcedEmpyre": "202101955231744000",
 	"naguyin": "234439528473952257",
+	"Tundra": "163056566285762562",
 }
 
 module.exports.notify = async event => {
