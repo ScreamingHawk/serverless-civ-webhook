@@ -11,6 +11,12 @@ const games = {
 	"Milky and friends": "655923289662685194",
 }
 
+// Games that should not notify
+const suppressedGames = [
+	"game-8",
+	"game-9",
+]
+
 // Map Civ player name to Discord user Id
 const players = {
 	"MilkyTaste": "172630139878768640",
@@ -32,6 +38,13 @@ module.exports.notify = async event => {
 	}
 	let gameName = data.value1
 	let civPlayer = data.value2
+
+	if (suppressedGames.includes(gameName)) {
+		console.info(`Suppressing notification of game ${gameName}`)
+		return {
+			statusCode: 200,
+		}
+	}
 	console.info(`Notifying ${civPlayer} of turn in game ${gameName}`)
 
 	// Login to discord
