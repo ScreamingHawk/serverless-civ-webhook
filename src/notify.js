@@ -9,6 +9,7 @@ const defaultChannel = process.env.defaultChannel || "478506811238907904"
 const games = {
 	"Lovers": "478506811238907904",
 	"Milky and friends": "655923289662685194",
+	"INTJ": "655923289662685194",
 }
 
 // Games that should not notify
