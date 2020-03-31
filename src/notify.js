@@ -10,6 +10,7 @@ const games = {
 	"Lovers": "478506811238907904",
 	"Milky and friends": "655923289662685194",
 	"INTJ": "655923289662685194",
+	"Quarantinos": "694374244125245511",
 }
 
 // Games that should not notify
@@ -29,6 +30,8 @@ const players = {
 	"IcedEmpyre": "202101955231744000",
 	"naguyin": "234439528473952257",
 	"Tundra": "163056566285762562",
+	"misskatles": "692469523063898144",
+	"Atomic_Kiwi": "280986022131531777",
 }
 
 module.exports.notify = async event => {
