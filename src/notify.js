@@ -7,7 +7,7 @@ const defaultChannel = process.env.defaultChannel || "478506811238907904"
 
 // Map Civ game name to Discord channel Id
 const games = {
-	"Lovers": "478506811238907904",
+	"Lovers": "694374244125245511",
 	"Milky and friends": "655923289662685194",
 	"INTJ": "655923289662685194",
 	"Quarantinos": "694374244125245511",
