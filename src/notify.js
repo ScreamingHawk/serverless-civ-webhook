@@ -11,6 +11,7 @@ const games = {
 	"Milky and friends": "655923289662685194",
 	"INTJ": "655923289662685194",
 	"Quarantinos": "694374244125245511",
+	"Quarantitties": "694374244125245511",
 }
 
 // Games that should not notify
@@ -33,6 +34,7 @@ const players = {
 	"misskatles": "692469523063898144",
 	"Atomic_Kiwi": "280986022131531777",
 	"TurtlePoke": "596994824951824393",
+	"Legofir": "160913311645433856",
 }
 
 module.exports.notify = async event => {
