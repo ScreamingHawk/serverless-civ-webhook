@@ -7,6 +7,6 @@
 	"queryStringParameters": null,
 	"pathParameters": null,
 	"stageVariables": null,
-	"body": "{\"value1\":\"Milky and friends\",\"value2\":\"IcedEmpyre\",\"value3\":69}",
+	"body": "{\"value1\":\"INTJ2\",\"value2\":\"IcedEmpyre\",\"value3\":69}",
 	"isBase64Encoded": false
 }

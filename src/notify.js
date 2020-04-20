@@ -9,7 +9,7 @@ const defaultChannel = process.env.defaultChannel || "478506811238907904"
 const games = {
 	"Lovers": "694374244125245511",
 	"Milky and friends": "655923289662685194",
-	"INTJ": "655923289662685194",
+	"INTJ2": "655923289662685194",
 	"Quarantinos": "694374244125245511",
 	"Quarantitties": "694374244125245511",
 }
