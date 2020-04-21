@@ -35,6 +35,8 @@ const players = {
 	"Atomic_Kiwi": "280986022131531777",
 	"TurtlePoke": "596994824951824393",
 	"Legofir": "160913311645433856",
+	"Tagswell": "139541918836195329",
+	"Katrominic": "496281027518398464",
 }
 
 module.exports.notify = async event => {
