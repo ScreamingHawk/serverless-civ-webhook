@@ -105,7 +105,7 @@ module.exports.notify = async event => {
 
 	// Send it
 	console.debug('Sending notification')
-	await channel.send(`Hey ${player}! It's your turn in Civ 6 game ${gameName}`)
+	await channel.send(`It's ${player}'s turn to play ${gameName}`)
 	console.debug('Notification sent')
 
 	// Logout of discord
