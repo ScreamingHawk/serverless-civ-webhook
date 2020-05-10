@@ -10,6 +10,7 @@ const games = {
 	"INTJ2": "655923289662685194",
 	"Quarantinos": "694374244125245511",
 	"Moist_Cat": "704256661635727430",
+	"Lovers2": "709183529971613716",
 }
 
 // Games that should not notify
