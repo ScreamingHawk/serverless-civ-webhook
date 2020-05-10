@@ -7,10 +7,10 @@ const defaultChannel = process.env.defaultChannel || "478506811238907904"
 
 // Map Civ game name to Discord channel Id
 const games = {
-	"INTJ2": "655923289662685194",
+	"INTJ": "655923289662685194",
 	"Quarantinos": "694374244125245511",
 	"Moist_Cat": "704256661635727430",
-	"Lovers2": "709183529971613716",
+	"Lovers": "709183529971613716",
 }
 
 // Games that should not notify
@@ -70,8 +70,8 @@ module.exports.notify = async event => {
 		}
 	}
 
-	// Get channel
-	let channelId = games[gameName] || defaultChannel
+	// Get channel exact, no number suffix, or default
+	let channelId = games[gameName] || games[gameName.replace(/\d*$/, '')] || defaultChannel
 	const channel = discord.channels.get(channelId)
 	if (!channel) {
 		console.error(`Invalid channel ${channelId}, using default`)
