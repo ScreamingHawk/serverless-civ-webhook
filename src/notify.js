@@ -15,9 +15,7 @@ const games = {
 
 // Games that should not notify
 const suppressedGames = [
-	"game-8",
-	"game-9",
-	"game-12",
+	"game-",
 ]
 
 // Games that should only notify is the player is on Discord
@@ -50,9 +48,10 @@ module.exports.notify = async event => {
 		}
 	}
 	let gameName = data.value1
+	let gameNamePrefix = gameName.replace(/\d*$/, '')
 	let civPlayer = data.value2
 
-	if (suppressedGames.includes(gameName)) {
+	if (suppressedGames.includes(gameName) || suppressedGames.includes(gameNamePrefix)) {
 		console.info(`Suppressing notification of game ${gameName}`)
 		return {
 			statusCode: 200,
@@ -72,7 +71,7 @@ module.exports.notify = async event => {
 	}
 
 	// Get channel exact, no number suffix, or default
-	let channelId = games[gameName] || games[gameName.replace(/\d*$/, '')] || defaultChannel
+	let channelId = games[gameName] || games[gameNamePrefix] || defaultChannel
 	const channel = discord.channels.get(channelId)
 	if (!channel) {
 		console.error(`Invalid channel ${channelId}, using default`)
@@ -93,7 +92,7 @@ module.exports.notify = async event => {
 		player = civPlayer
 	} else {
 		// When player is not found, don't notify on limited notification games
-		if (limitedNotifGames.includes(gameName)) {
+		if (limitedNotifGames.includes(gameName) || limitedNotifGames.includes(gameNamePrefix)) {
 			console.info(`Suppressing notification of game ${gameName} due to unfound player`)
 			return {
 				statusCode: 200,
