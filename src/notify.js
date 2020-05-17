@@ -16,11 +16,12 @@ const games = {
 // Games that should not notify
 const suppressedGames = [
 	"game-8",
+	"game-9",
+	"game-12",
 ]
 
 // Games that should only notify is the player is on Discord
 const limitedNotifGames = [
-	"game-9",
 ]
 
 // Map Civ player name to Discord user Id
