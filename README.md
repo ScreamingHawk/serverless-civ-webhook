@@ -32,13 +32,6 @@ Notification
 sls invoke -f notify --aws-profile default --path test/civ.example.json
 ```
 
-Talk
-
-
-```sh
-sls invoke -f talk --aws-profile default --path test/talk.example.json
-```
-
 ### Logs
 
 ```sh
