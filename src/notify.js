@@ -17,6 +17,7 @@ const games = {
 // Games that should not notify
 const suppressedGames = [
 	"game-",
+	"game-12-take-",
 ]
 
 // Games that should only notify is the player is on Discord
