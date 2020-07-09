@@ -17,7 +17,6 @@ const games = {
 // Games that should not notify
 const suppressedGames = [
 	"game-",
-	"game-12-take-",
 ]
 
 // Map Civ player name to Discord user Id
@@ -35,6 +34,14 @@ const players = {
 	"Katrominic": "496281027518398464",
 }
 
+const findInPrefixList = (list, value) => {
+	return list.filter(i => value.startsWith(i))[0]
+}
+const findInPrefixMap = (map, value) => {
+	const key = findInPrefixList(Object.keys(map), value)
+	return map[key]
+}
+
 module.exports.notify = async event => {
 	// Validate request
 	console.debug(event.body)
@@ -46,10 +53,9 @@ module.exports.notify = async event => {
 		}
 	}
 	let gameName = data.value1
-	let gameNamePrefix = gameName.replace(/\d*$/, '')
 	let civPlayer = data.value2
 
-	if (suppressedGames.includes(gameName) || suppressedGames.includes(gameNamePrefix)) {
+	if (findInPrefixList(suppressedGames, gameName)) {
 		console.info(`Suppressing notification of game ${gameName}`)
 		return {
 			statusCode: 200,
@@ -69,7 +75,7 @@ module.exports.notify = async event => {
 	}
 
 	// Get channel exact, no number suffix, or default
-	let channelId = games[gameName] || games[gameNamePrefix] || defaultChannel
+	let channelId = findInPrefixMap(games, gameName) || defaultChannel
 	const channel = discord.channels.get(channelId)
 	if (!channel) {
 		console.error(`Invalid channel ${channelId}, using default`)
