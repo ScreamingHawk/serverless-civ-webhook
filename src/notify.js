@@ -20,10 +20,6 @@ const suppressedGames = [
 	"game-12-take-",
 ]
 
-// Games that should only notify is the player is on Discord
-const limitedNotifGames = [
-]
-
 // Map Civ player name to Discord user Id
 const players = {
 	"MilkyTaste": "172630139878768640",
@@ -93,13 +89,6 @@ module.exports.notify = async event => {
 		console.warn(`Unable to find player with civName ${civPlayer}`)
 		player = civPlayer
 	} else {
-		// When player is not found, don't notify on limited notification games
-		if (limitedNotifGames.includes(gameName) || limitedNotifGames.includes(gameNamePrefix)) {
-			console.info(`Suppressing notification of game ${gameName} due to unfound player`)
-			return {
-				statusCode: 200,
-			}
-		}
 		player = `<@${player}>`
 	}
 
