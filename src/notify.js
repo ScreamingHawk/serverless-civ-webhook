@@ -77,7 +77,7 @@ module.exports.notify = async event => {
 
 	// Get channel exact, no number suffix, or default
 	let channelId = findInPrefixMap(games, gameName) || defaultChannel
-	const channel = discord.channels.get(channelId)
+	let channel = discord.channels.get(channelId)
 	if (!channel) {
 		console.error(`Invalid channel ${channelId}, using default`)
 		channel = discord.channels.get(process.env.defaultChannel)
