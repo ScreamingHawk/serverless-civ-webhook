@@ -17,6 +17,7 @@ const games = {
 // Games that should not notify
 const suppressedGames = [
 	"game-",
+	"pirates-",
 ]
 
 // Map Civ player name to Discord user Id
