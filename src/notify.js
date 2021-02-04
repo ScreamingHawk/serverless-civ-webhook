@@ -33,6 +33,7 @@ const players = {
 	"Legofir": "160913311645433856",
 	"Tagswell": "139541918836195329",
 	"Katrominic": "496281027518398464",
+	"Piff": "136596903885406217",
 }
 
 const findInPrefixList = (list, value) => {
